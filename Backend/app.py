@@ -1,6 +1,6 @@
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify, request,send_from_directory
 from flask_cors import CORS
-
+import os
 app = Flask(__name__)
 CORS(app)
 
@@ -9,7 +9,15 @@ faqs = [
     {"id": 1, "question": "What is an Apple?", "answer": "An apple is a round fruit with red, green, or yellow skin."},
     {"id": 2, "question": "How much Vitamin C is in an Orange?", "answer": "Oranges are high in Vitamin C, providing about 70 mg per 100 grams."},
 ]
+frontend_folder = os.path.join(os.getcwd(),"..","frontend",)
+dist_folder = os.path.join(frontend_folder,"dist")
 
+@app.route("/",defaults = {"filename":""})
+@app.route("/<path:filename>")
+def index(filename):
+    if not filename:
+        filename ="index.html"
+        return send_from_directory(dist_folder,filename) 
 @app.route('/faqs', methods=['GET'])
 def get_faqs():
     return jsonify(faqs)
