@@ -1,0 +1,144 @@
+/* Basic reset for better cross-browser consistency */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Container for the chatbot */
+.chatbot-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    background: #fff;
+}
+
+/* Chatbox styling */
+.chatbox {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+    background: #f9f9f9;
+    border-bottom: 1px solid #ddd;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Message styling */
+.message {
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    max-width: 80%;
+    word-wrap: break-word;
+    line-height: 1.5;
+}
+
+.message.user {
+    background: #d1f7d6;
+    align-self: flex-end;
+}
+
+.message.bot {
+    background: #e1e1e1;
+    align-self: flex-start;
+}
+
+/* Input container styling */
+.input-container {
+    display: flex;
+    padding: 10px;
+    background: #fff;
+    border-top: 1px solid #ddd;
+    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+}
+
+input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-right: 10px;
+    font-size: 1rem;
+}
+
+button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background: #007bff;
+    color: #fff;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background 0.3s ease;
+}
+
+button:hover {
+    background: #0056b3;
+}
+
+/* Responsive styling */
+@media (max-width: 1024px) {
+    .chatbot-container {
+        max-width: 100%;
+        height: 100%;
+        border: none;
+    }
+
+    .input-container {
+        flex-direction: column;
+    }
+
+    input {
+        margin-bottom: 10px;
+        width: 100%;
+    }
+
+    button {
+        width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .chatbox {
+        padding: 15px;
+    }
+
+    .message {
+        max-width: 90%;
+        font-size: 0.875rem;
+    }
+
+    input {
+        font-size: 0.875rem;
+    }
+
+    button {
+        font-size: 0.875rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .chatbox {
+        padding: 10px;
+    }
+
+    .message {
+        font-size: 0.75rem;
+    }
+
+    input {
+        font-size: 0.75rem;
+    }
+
+    button {
+        font-size: 0.75rem;
+    }
+}
